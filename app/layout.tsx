@@ -13,37 +13,54 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sahel Tech Hub - Solutions IT & Transformation Digitale en Afrique de l'Ouest",
-  description: "Services IT complets pour entreprises, administrations et ONG au Sahel. Développement web, mobile, e-commerce, ERP/CRM, formations professionnelles et incubateur de startups.",
+  title: {
+    default: "Sahel Tech Hub - Formation & Innovation Technologique",
+    template: "%s | Sahel Tech Hub"
+  },
+  description: "Centre de formation et d'innovation technologique au Mali. Formations en développement web, mobile, data science, cybersécurité et plus encore.",
   keywords: [
-    "services informatiques Sahel",
-    "transformation digitale Afrique de l'Ouest",
+    "formation technologie Mali",
     "développement web Sahel",
-    "formation IT",
-    "incubateur startups",
-    "e-commerce Afrique",
-    "ERP CRM",
+    "innovation technologique Afrique",
+    "coding bootcamp Mali",
+    "formation IT Bamako",
+    "programmation",
+    "data science",
     "cybersécurité",
   ],
   authors: [{ name: "Sahel Tech Hub" }],
   creator: "Sahel Tech Hub",
   publisher: "Sahel Tech Hub",
-  metadataBase: new URL("http://localhost:34500"),
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://sahel-tech-hub.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Sahel Tech Hub - Transformation Digitale",
-    description: "Solutions IT complètes pour la zone du Sahel",
-    url: "http://localhost:34500",
+    title: "Sahel Tech Hub - Formation & Innovation Technologique",
+    description: "Centre de formation et d'innovation technologique au Mali",
+    url: "https://sahel-tech-hub.vercel.app",
     siteName: "Sahel Tech Hub",
     locale: "fr_FR",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Sahel Tech Hub",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sahel Tech Hub",
-    description: "Solutions IT & Transformation Digitale",
+    title: "Sahel Tech Hub - Formation & Innovation Technologique",
+    description: "Centre de formation et d'innovation technologique au Mali",
+    images: ["/og-image.png"],
     creator: "@saheltechhub",
   },
   robots: {
@@ -57,6 +74,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -66,6 +88,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#3b82f6" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

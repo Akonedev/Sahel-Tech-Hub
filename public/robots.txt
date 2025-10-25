@@ -1,4 +1,11 @@
+# Robots.txt pour Sahel Tech Hub
 User-agent: *
 Allow: /
 
-Sitemap: http://localhost:34500/sitemap.xml
+# Sitemap
+Sitemap: https://sahel-tech-hub.vercel.app/sitemap.xml
+
+# Désactiver l'accès aux fichiers sensibles
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/

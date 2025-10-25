@@ -1,0 +1,236 @@
+════════════════════════════════════════════════════════════════════════════════
+                    🚀 COMMANDES RAPIDES - SAHEL TECH HUB
+════════════════════════════════════════════════════════════════════════════════
+
+
+📍 ALLER DANS LE DOSSIER DU PROJET
+════════════════════════════════════════════════════════════════════════════════
+
+cd /home/akone/Documents/Dev/CRMERP/Ever/sahel-tech-hub
+
+
+🌐 VOIR LE SITE WEB
+════════════════════════════════════════════════════════════════════════════════
+
+Ouvrez votre navigateur et allez sur :
+
+    http://localhost:34500
+
+
+📊 AFFICHER L'ÉTAT DU PROJET
+════════════════════════════════════════════════════════════════════════════════
+
+./afficher-statut.sh
+
+
+🚀 POUSSER SUR GITHUB (RECOMMANDÉ)
+════════════════════════════════════════════════════════════════════════════════
+
+./COMMANDES_PUSH_GITHUB.sh
+
+Le script vous demandera votre token GitHub et fera tout automatiquement !
+
+
+📖 LIRE LA DOCUMENTATION
+════════════════════════════════════════════════════════════════════════════════
+
+# Vue d'ensemble
+cat LIRE_MOI_DABORD.md
+
+# Instructions complètes
+cat INSTRUCTIONS_FINALES.md
+
+# Résumé du projet
+cat RESUME_FINAL.md
+
+# État visuel
+cat TOUT_EST_PRET.txt
+
+# Dashboard
+cat DASHBOARD_PROJET.txt
+
+
+🐳 GÉRER DOCKER
+════════════════════════════════════════════════════════════════════════════════
+
+# Voir les containers actifs
+docker ps
+
+# Redémarrer l'application
+docker compose restart
+
+# Arrêter l'application
+docker compose down
+
+# Relancer l'application
+docker compose up -d
+
+# Voir les logs en direct
+docker logs sahel-tech-hub-sahel-tech-hub-1 -f
+
+# Voir les dernières 50 lignes des logs
+docker logs sahel-tech-hub-sahel-tech-hub-1 --tail 50
+
+
+🧪 TESTER L'APPLICATION
+════════════════════════════════════════════════════════════════════════════════
+
+# Test HTTP simple
+curl http://localhost:34500
+
+# Test avec temps de réponse
+curl -w "Temps: %{time_total}s\n" -o /dev/null -s http://localhost:34500
+
+# Vérifier PostgreSQL
+docker exec sahel-tech-hub-postgres-1 pg_isready
+
+# Vérifier Redis
+docker exec sahel-tech-hub-redis-1 redis-cli ping
+
+
+📝 GIT - VÉRIFICATIONS
+════════════════════════════════════════════════════════════════════════════════
+
+# Voir l'état git
+git status
+
+# Voir les commits
+git log --oneline -5
+
+# Voir le remote configuré
+git remote -v
+
+# Voir la branche actuelle
+git branch
+
+
+🔐 CRÉER UN TOKEN GITHUB
+════════════════════════════════════════════════════════════════════════════════
+
+1. Allez sur : https://github.com/settings/tokens
+
+2. Cliquez sur "Generate new token (classic)"
+
+3. Donnez un nom : "Sahel Tech Hub Push"
+
+4. Cochez TOUTES les options sous "repo" :
+   ✅ repo:status
+   ✅ repo_deployment
+   ✅ public_repo
+   ✅ repo:invite
+   ✅ security_events
+
+5. Cliquez "Generate token"
+
+6. COPIEZ LE TOKEN (vous ne le verrez plus !)
+
+
+📤 PUSH MANUEL SUR GITHUB (si le script ne fonctionne pas)
+════════════════════════════════════════════════════════════════════════════════
+
+# Remplacez VOTRE_TOKEN par le token que vous venez de créer
+
+git remote set-url origin https://Akonedev:VOTRE_TOKEN@github.com/Akonedev/Sahel-Tech-Hub.git
+
+git push -u origin main
+
+
+✅ VÉRIFIER LE PUSH GITHUB
+════════════════════════════════════════════════════════════════════════════════
+
+Ouvrez votre navigateur et allez sur :
+
+    https://github.com/Akonedev/Sahel-Tech-Hub
+
+Vous devriez voir tout votre code !
+
+
+🛠️ DÉVELOPPEMENT LOCAL (sans Docker)
+════════════════════════════════════════════════════════════════════════════════
+
+# Installer les dépendances (première fois)
+npm install
+
+# Lancer en mode développement
+npm run dev
+
+# L'application sera accessible sur :
+# http://localhost:34500
+
+# Build pour production
+npm run build
+
+# Lancer la version production
+npm start
+
+
+🔄 RÉSOLUTION DE PROBLÈMES
+════════════════════════════════════════════════════════════════════════════════
+
+# Le site ne répond pas ?
+docker compose restart
+
+# Erreur de port ?
+# Éditez docker-compose.yml et changez le port 34500
+
+# Effacer le cache
+docker compose down -v
+docker compose up -d
+
+# Reconstruire l'image
+docker compose up -d --build
+
+# Tout redémarrer proprement
+docker compose down
+docker system prune -f
+docker compose up -d
+
+
+📊 STATISTIQUES DU PROJET
+════════════════════════════════════════════════════════════════════════════════
+
+# Compter les fichiers TypeScript/React
+find . -name "*.tsx" -o -name "*.ts" | wc -l
+
+# Compter les composants
+find components -name "*.tsx" | wc -l
+
+# Taille du projet (sans node_modules)
+du -sh --exclude=node_modules --exclude=.next .
+
+# Nombre de lignes de code
+find . -name "*.tsx" -o -name "*.ts" | xargs wc -l
+
+
+📞 LIENS UTILES
+════════════════════════════════════════════════════════════════════════════════
+
+Site Local         : http://localhost:34500
+GitHub Repository  : https://github.com/Akonedev/Sahel-Tech-Hub
+GitHub Tokens      : https://github.com/settings/tokens
+GitHub SSH Keys    : https://github.com/settings/keys
+
+Docker Hub         : https://hub.docker.com/
+Docker Docs        : https://docs.docker.com/
+
+Next.js Docs       : https://nextjs.org/docs
+React Docs         : https://react.dev/
+TypeScript Docs    : https://www.typescriptlang.org/docs/
+Tailwind CSS       : https://tailwindcss.com/docs
+shadcn/ui          : https://ui.shadcn.com/
+
+
+🎯 COMMANDE LA PLUS IMPORTANTE
+════════════════════════════════════════════════════════════════════════════════
+
+Pour pousser votre code sur GitHub, exécutez simplement :
+
+    cd /home/akone/Documents/Dev/CRMERP/Ever/sahel-tech-hub
+    ./COMMANDES_PUSH_GITHUB.sh
+
+C'est tout ! Le script fait le reste automatiquement. 🚀
+
+
+════════════════════════════════════════════════════════════════════════════════
+               Fait avec ❤️  pour l'écosystème tech du Sahel 🌍
+════════════════════════════════════════════════════════════════════════════════

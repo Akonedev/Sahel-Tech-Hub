@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  sahel-tech-hub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "34500:34500"
+    environment:
+      - NODE_ENV=production
+      - PORT=34500
+    restart: unless-stopped
+    networks:
+      - sahel-network
+
+  # PostgreSQL pour les futures fonctionnalités
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "34532:5432"
+    environment:
+      - POSTGRES_USER=sahel
+      - POSTGRES_PASSWORD=sahel2024
+      - POSTGRES_DB=sahel_tech_hub
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - sahel-network
+    restart: unless-stopped
+
+  # Redis pour le cache
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "34579:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - sahel-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  sahel-network:
+    driver: bridge

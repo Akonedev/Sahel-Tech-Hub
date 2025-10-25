@@ -20,22 +20,13 @@ export function ContactForm() {
     setErrorMessage("");
 
     try {
-      // Web3Forms - 100% gratuit, pas d'API key nécessaire
-      // Obtenez votre clé gratuite sur https://web3forms.com
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // Appel à notre API locale Next.js (100% local, pas de service externe)
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
-        body: JSON.stringify({
-          access_key: "YOUR_ACCESS_KEY_HERE", // Remplacez par votre clé gratuite de web3forms.com
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          from_name: "Sahel Tech Hub Contact",
-        }),
+        body: JSON.stringify(formData),
       });
 
       const result = await response.json();
@@ -46,7 +37,7 @@ export function ContactForm() {
         setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
-        setErrorMessage(result.message || "Une erreur s'est produite");
+        setErrorMessage(result.error || "Une erreur s'est produite");
       }
     } catch (error) {
       setStatus("error");

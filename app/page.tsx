@@ -5,6 +5,8 @@ import ServicesAlternate from "@/components/sections/ServicesAlternate";
 import SolutionsModern from "@/components/sections/SolutionsModern";
 import FormationsVaried from "@/components/sections/FormationsVaried";
 import IncubateurVaried from "@/components/sections/IncubateurVaried";
+import StatsSection from "@/components/sections/StatsSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import Contact from "@/components/sections/Contact";
 import { BackToTop } from "@/components/ui/back-to-top";
 
@@ -28,6 +30,9 @@ export default function Home() {
           <SolutionsModern />
         </div>
         
+        {/* Stats: Impact en chiffres */}
+        <StatsSection />
+        
         {/* Formations: Fond vert sahel très clair */}
         <div className="bg-gradient-to-br from-[#E8F5E9] via-[#F1F8E9] to-[#E8F5E9]">
           <FormationsVaried />
@@ -37,6 +42,9 @@ export default function Home() {
         <div className="bg-gradient-to-br from-[#FFF3E0] via-[#FFE0B2] to-[#FFECB3]">
           <IncubateurVaried />
         </div>
+        
+        {/* Témoignages */}
+        <TestimonialsSection />
         
         {/* Contact: Fond blanc avec pattern subtil */}
         <div className="bg-white pattern-sahel">
